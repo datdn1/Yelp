@@ -38,6 +38,10 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.offsetBussiness = self.businesses.count
                 println("Offset:\(self.offsetBussiness)")
             }
+            else {
+                self.offsetBussiness = 0
+                println("Offset:\(self.offsetBussiness)")
+            }
         }
     }
     var filters: [String:AnyObject]!
@@ -183,6 +187,8 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
                         self.businesses = self.businesses + busines!
                     }
                     else {
+                        self.businesses = []
+                        self.navigationItem.rightBarButtonItem?.enabled = false
                         self.errorMessageLabel.text = "No found. Please enter with other term or setting filter."
                         self.tableView.hidden = true
                         self.errorInfromationView.hidden = false
@@ -229,6 +235,8 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.businesses = self.businesses + businesses!
                 }
                 else {
+                    self.businesses = []
+                    self.navigationItem.rightBarButtonItem?.enabled = false
                     self.errorMessageLabel.text = "No found. Please enter with other term or setting filter."
                     self.tableView.hidden = true
                     self.errorInfromationView.hidden = false
